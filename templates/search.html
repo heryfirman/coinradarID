@@ -1,0 +1,38 @@
+{% extends "layouts/base_with_grid.html" %}
+{% block title %} Search Article {% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="/static/css/search.css" />
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="banner-search">
+      <div class="search-header">
+        {% if results %}
+            <p>Your search results :</p>
+            <h1>{{ searched }}</h1>
+        {% else %}
+            <h3>Search Not Found.</h3>
+        {% endif %}
+      </div>
+    </div>
+    <div class="list-article_search">
+      {% if results %}
+        {% for result in results %}
+        <div class="card-article">
+            <div class="wrap-info_article">
+            <span class="label">{{ result.category }}</span>
+            <h1><a href="/singlepage/{{ result.title }}">{{ result.title }}</a></h1>
+            <span class="date">{{ result.published_at }}</span>
+            <div class="describe">
+                <p>{{ result.description }}</p>
+            </div>
+            </div>
+            <div class="thumbnaile"><img src="/static/{{ result.thumbnail }}" alt=""></div>
+        </div>
+        {% endfor %}
+      {% endif %}  
+    </div>
+  </main>
+{% endblock %}

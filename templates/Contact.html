@@ -1,0 +1,38 @@
+{% extends "layouts/base_with_grid.html" %}
+
+{% block title %} Contact {% endblock %}
+
+{% block extrahead %}
+<!-- <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet"> -->
+<link rel="stylesheet" href="/static/css/contact.css" />
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<!-- <link rel="stylesheet" href="/static/contact.css"> -->
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <section class="contact-form">
+        <form id="contactForm" method="post">
+            <div>
+                <h1><span class="emoji">📥</span> Contact Me</h1>
+            </div>
+            <div class="mb-3">
+                <label for="name" class="form-label">Name</label>
+                <input type="text" class="form-control" id="name" name="name" placeholder="Enter your name" required>
+            </div>
+            <div class="mb-3">
+                <label for="email" class="form-label">Surel</label>
+                <input type="email" class="form-control" id="email" name="email" placeholder="Example@gmail.com"
+                    required>
+            </div>
+            <div class="mb-3">
+                <label for="message" class="form-label">Message</label>
+                <textarea class="form-control" id="message" name="message" rows="5"
+                    placeholder="Type your message here..." required></textarea>
+            </div>
+            <button type="submit" class="btn">Submit</button>
+        </form>
+        <div id="statusMessage"></div>
+    </section>
+</main>
+{% endblock %}

@@ -1,0 +1,83 @@
+@import "./styles/global.css";
+
+/* ---------->>> MAIN - START <<------------ */
+.main-container {
+    grid-area: main;
+    min-block-size: 100vh;
+    min-block-size: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding-block: 1rem;
+    width: min(95%, 50rem);
+    margin-inline: auto;
+    text-align: center;
+}
+
+.main-container .welcome-section .logo {
+    max-width: 200px;
+    margin-bottom: 20px;
+}
+
+.main-container h1 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 1rem;
+}
+
+.main-container h2.about-title {
+    font-size: 1.5rem;
+    color: #333;
+    margin-bottom: 2rem;
+}
+
+.main-container h1.italic {
+    font-style: italic;
+}
+
+.main-container .text-justify {
+    text-align: center justify;
+    text-justify: inter-word;
+    margin-bottom: 0.875rem;
+}
+
+.main-container .highlight {
+    color: #f39c12;
+}
+
+.main-container .social-title {
+    font-size: 1rem;
+    margin-top: 20px;
+}
+
+.main-container .social-links {
+    margin-top: 10px;
+}
+
+.main-container .social-links a {
+    display: inline-block;
+    margin: 0 10px;
+}
+
+.main-container .social-links img {
+    width: 40px;
+    height: 40px;
+    transition: transform 0.3s;
+}
+
+.main-container .social-links img:hover {
+    transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+    .main-container {
+        padding: 10px;
+    }
+
+    .main-container .social-links img {
+        width: 35px;
+        height: 35px;
+    }
+}
+
+/* ---------->>> MAIN - END <<-------------- */

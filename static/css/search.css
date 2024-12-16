@@ -1,0 +1,106 @@
+@import "./styles/global.css";
+
+/* ---------->>> MAIN - START <<------------ */
+.main {
+    grid-area: main;
+    min-block-size: 100vh;
+    min-block-size: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 12rem auto;
+    padding-block: 1rem;
+    width: min(95%, 90rem);
+    margin-inline: auto;
+}
+.main .banner-search {
+    width: 100%;
+    height: 100%;
+}
+.main .banner-search .search-header {
+    display: flex;
+    flex-direction: column;
+    place-content: center center;
+    align-items: center;
+    gap: 0.75rem;
+    width: 100%;
+    height: 100%;
+    margin: 0 auto;
+    border-radius: var(--br-small);
+    background-color: #F1EFEC;
+}
+.search-header h1 {
+    text-wrap: balance;
+}
+.search-header h3 {
+    color: #6B7280;
+}
+.main .list-article_search {
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    width: 100%;
+    height: auto;
+    gap: 1rem;
+    margin: 1rem auto;
+}
+.list-article_search .card-article {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-height: fit-content;
+    padding: 1rem;
+    padding-bottom: 1.5rem;
+    gap: 4rem;
+    border-bottom: 1px solid var(--c-border-primary);
+}
+.card-article .wrap-info_article {
+    width: 80%;
+    height: auto;
+    overflow: hidden;
+}
+.wrap-info_article span.label {
+    display: inline-block;
+    margin: 8px auto;
+    padding: 5px 14px 7px;
+    background-color: #2F2E2E;
+    border-radius: 20px;
+    color: #ffffff;
+    font-size: 10px;
+    letter-spacing: 1px;
+}
+.wrap-info_article h1 {
+    font-size: 30px;
+    text-wrap: balance;
+}
+.wrap-info_article span.date {
+    display: inline-block;
+    margin: 10px auto 0;
+    font-size: 14px;
+    color: #6B7280;
+}
+.wrap-info_article .describe p {
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;  
+    max-width: 50%;
+    padding: 10px 0 0;
+    font-size: 1rem;
+    text-overflow: ellipsis;
+}
+.card-article .thumbnaile {
+    /* width: 20%; */
+    width: auto;
+    height: 140px;
+    overflow: hidden;
+    border-radius: var(--br-basic);
+    background-color: #6B7280;
+}
+.card-article .thumbnaile img {
+    width: 100%;
+    max-width: 280px;
+    height: 140px;
+    margin: auto;
+    object-fit: cover;
+    background-position: center;
+}
+/* ---------->>> MAIN - END <<-------------- */

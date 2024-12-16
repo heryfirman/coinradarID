@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CoinRadar Sign Up</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background: linear-gradient(to bottom, #f0f5ff, #d1e8ff);
+            margin: 0;
+        }
+
+        .wrapper {
+            display: flex;
+            width: 80%;
+            max-width: 1200px;
+            background-color: white;
+            box-shadow: 0px 4px 15px rgba(0, 0, 0, 0.2);
+            border-radius: 15px;
+            overflow: hidden;
+        }
+
+        .logo {
+            position: absolute;
+            top: 20px;
+            left: 20px;
+            width: 150px;
+            z-index: 1000;
+        }
+
+        .avatar-section {
+            flex: 1;
+            background: linear-gradient(transparent);
+            color: white;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            padding: 40px;
+        }
+
+        .avatar-section h1 {
+            font-size: 28px;
+            font-weight: 600;
+            margin-bottom: 20px;
+            text-align: center;
+        }
+
+        .avatar {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+            background-color: #ffffff;
+            overflow: hidden;
+            transition: transform 0.3s ease;
+        }
+
+        .avatar:hover {
+            transform: scale(1.1);
+        }
+
+        .avatar img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .avatar-grid {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 10px;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .avatar-option {
+            width: 70px;
+            height: 70px;
+            border-radius: 50%;
+            border: 2px solid white;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .avatar-option:hover {
+            transform: scale(1.1);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+        }
+
+        .signup-section {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            padding: 40px;
+        }
+
+        .signup-section h2 {
+            font-size: 32px;
+            font-weight: 600;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        .signup-section p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 20px;
+        }
+
+        .form-group {
+            position: relative;
+            margin-bottom: 20px;
+        }
+
+        .form-group input {
+            width: 100%;
+            padding: 12px 40px 12px 45px; /* padding untuk ikon */
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            font-size: 16px;
+            box-sizing: border-box; /* Pastikan lebar termasuk padding dan border */
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus {
+            border-color: #007bff;
+            outline: none;
+        }
+
+        .form-group .icon-left {
+            position: absolute;
+            left: 15px; /* Jarak antara ikon dan border kiri */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #555;
+        }
+
+        .form-group .icon-right {
+            position: absolute;
+            right: 10px; /* Jarak ikon di kanan */
+            top: 50%;
+            transform: translateY(-50%);
+            font-size: 18px;
+            color: #555;
+            cursor: pointer;
+        }
+
+        .btn {
+            width: 100%;
+            padding: 12px;
+            background: linear-gradient(to right, #007bff, #0056b3);
+            color: white;
+            border: none;
+            border-radius: 50px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background 0.3s ease, transform 0.3s ease;
+        }
+
+        .btn:hover {
+            background: linear-gradient(to right, #0056b3, #003d80);
+            transform: scale(1.05);
+        }
+
+        .google-section {
+            text-align: center;
+            margin-top: 20px;
+        }
+
+        .google-section p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 10px;
+        }
+
+        .google-logo {
+            width: 40px;
+            height: 40px;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+
+        .google-logo:hover {
+            transform: scale(1.2);
+        }
+
+        .footer {
+            margin-top: 20px;
+            font-size: 12px;
+            color: #999;
+            text-align: center;
+        }
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
+</head>
+<body>
+    <div class="wrapper">
+        <img src="static/logo.png" alt="Logo" class="logo">
+        <div class="avatar-section">
+            <h1>Select Your Avatar</h1>
+            <div class="avatar">
+                <img id="avatar" src="https://api.multiavatar.com/random.svg" alt="Avatar">
+            </div>
+            <button class="btn" onclick="generateAvatars()">Generate Avatars</button>
+            <div class="avatar-grid" id="avatar-grid"></div>
+        </div>
+        <div class="signup-section">
+            <h2>Sign Up</h2>
+            <p class="login-text">Already have an account? <a href="/login">Sign In</a></p>
+            <form action="/signup" method="POST">
+                <div class="form-group">
+                    <i class="icon-left fas fa-user"></i>
+                    <input type="text" name="username" placeholder="Username" required>
+                </div>
+                <div class="form-group">
+                    <i class="icon-left fas fa-envelope"></i>
+                    <input type="email" name="email" placeholder="Email" required>
+                </div>
+                <div class="form-group">
+                    <i class="icon-left fas fa-lock"></i>
+                    <input type="password" id="password" name="password" placeholder="Password" required>
+                    <i class="icon-right fas fa-eye" id="toggle-password" onclick="togglePassword()"></i>
+                </div>
+                <div class="form-group">
+                    <label for="role" style="font-size: 16px; color: #333; font-weight: 600;">Choose Role:</label>
+                    <select name="role" id="role" class="form-control" style="width: 100%; padding: 12px; border: 1px solid #ccc; border-radius: 5px;" required>
+                        <option value="user">User</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <input type="hidden" name="avatar" id="avatar-input" value="https://api.multiavatar.com/random.svg">
+                </div>
+                <button class="btn" type="submit">Sign Up</button>
+            </form>
+            
+            <div class="google-section">
+                <p>or continue with account</p>
+                <img 
+                    src="static/google.png" 
+                    alt="Google Logo" 
+                    class="google-logo">
+            </div>
+            <div class="footer">© 2024 CoinRadar. All rights reserved.</div>
+        </div>
+    </div>
+
+    {% include "components/flash.html" %}
+
+
+    <script>
+        // Function to generate avatars
+        function generateAvatars() {
+            const avatarGrid = document.getElementById('avatar-grid');
+            avatarGrid.innerHTML = ''; // Clear the grid
+
+            for (let i = 0; i < 16; i++) { // Generate 8 avatars
+                const randomId = Math.random().toString(36).substring(7);
+                const avatarOption = document.createElement('div');
+                avatarOption.className = 'avatar-option';
+                avatarOption.innerHTML = `<img src="https://api.multiavatar.com/${randomId}.svg" alt="Avatar">`;
+                avatarOption.onclick = function () {
+                    const selectedAvatar = avatarOption.querySelector('img').src;
+                    document.getElementById('avatar').src = selectedAvatar;
+                    document.getElementById('avatar-input').value = selectedAvatar;
+                };
+                avatarGrid.appendChild(avatarOption);
+            }
+        }
+
+        // Toggle password visibility
+        function togglePassword() {
+            const passwordField = document.getElementById('password');
+            const passwordToggle = document.getElementById('toggle-password');
+            if (passwordField.type === 'password') {
+                passwordField.type = 'text';
+                passwordToggle.classList.replace('fa-eye', 'fa-eye-slash');
+            } else {
+                passwordField.type = 'password';
+                passwordToggle.classList.replace('fa-eye-slash', 'fa-eye');
+            }
+        }
+    </script>
+</body>
+</html>

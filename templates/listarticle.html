@@ -1,0 +1,97 @@
+{% extends "layouts/base_with_grid.html" %}
+
+{% block title %} List/Artikel {% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="/static/css/style.css" />
+<link rel="stylesheet" href="/static/css/articlethmb.css">
+<link rel="stylesheet" href="/static/css/slider.css">
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="content-grid">
+        <!-- Main Content -->
+        <div class="main-content">
+            <!-- Breadcrumb -->
+            <div class="breadcrumb">
+                <a href="/">Home</a> &gt;
+                <span>{{ selected_category|capitalize if selected_category else 'Berita' }}</span>
+            </div>
+
+            <!-- Penanda Kategori -->
+            <h2 class="category-title">
+                {% if selected_category != 'all' %}
+                {{ selected_category|capitalize }}
+                {% else %}
+                Semua Artikel
+                {% endif %}
+            </h2>
+            <hr />
+
+            <!-- Daftar Artikel -->
+            <div class="list-articles">
+                {% for article in articles %}
+                <article class="card-article">
+                    <a href="{{ url_for('singlepage', title=article.title) }}" class="thumbnaile">
+                        <img src="{{ url_for('static', filename=article.thumbnail) }}" alt="Thumbnail for {{ article.title }}">
+                    </a>
+                    <div class="article-info">
+                        <div class="info">
+                            <!-- Judul Artikel dengan tautan -->
+                            <h3><a href="{{ url_for('singlepage', title=article.title) }}">{{ article.title }}</a></h3>
+                            <p>{{ article.published_at }} <span>{{ article.category }}</span></p>
+                        </div>
+                        <div class="describe">
+                            <p>
+                                {{ article.description[:150] }}{% if article.description|length > 150 %}...{% endif %}
+                            </p>
+                        </div>
+                    </div>
+                </article>
+                {% endfor %}
+            </div>            
+
+            <!-- Pagination -->
+            <div class="pagination-container">
+                {% if current_page > 1 %}
+                <a href="/list?category={{ selected_category }}&page={{ current_page - 1 }}"
+                    class="pagination-button">Previous</a>
+                {% endif %}
+
+                {% for page in range(1, total_pages + 1) %}
+                <a href="/list?category={{ selected_category }}&page={{ page }}"
+                    class="pagination-button {% if page == current_page %}active{% endif %}">
+                    {{ page }}
+                </a>
+                {% endfor %}
+
+                {% if current_page < total_pages %} 
+                <a href="/list?category={{ selected_category }}&page={{ current_page + 1 }}" class="pagination-button">
+                    Next
+                </a>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- Sidebar Content -->
+        <aside class="recent-posts">
+            <h3>Recent Posts</h3>
+            <ul class="recent-post-list">
+                {% for post in recent_posts %}
+                <li class="recent-post-item">
+                    <div class="recent-post-info">
+                        <span class="post-category">{{ post.category }}</span>
+                        <a href="{{ url_for('singlepage', title=post.title) }}" class="post-title">{{ post.title }}</a>
+                        <p class="post-date">{{ post.published_at.strftime('%d %b %Y') }}</p>
+                    </div>
+                    <a href="{{ url_for('singlepage', title=post.title) }}" class="recent-post-thumbnail">
+                        <img src="{{ url_for('static', filename=post.thumbnail) }}" alt="{{ post.title }}">
+                    </a>
+                </li>
+                {% endfor %}
+            </ul>
+        </aside>        
+    </div>
+</main>
+{% endblock %}

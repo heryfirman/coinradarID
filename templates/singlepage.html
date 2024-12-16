@@ -1,0 +1,91 @@
+{% extends "layouts/base_with_grid.html" %}
+
+{% block title %} Single Page {% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="/static/css/singlepage.css" />
+{% endblock %}
+
+{% block content %}
+
+<main class="main">
+    <div class="banner">
+        <h1 class="Title-article">
+            {{ article['title'] }}
+        </h1>
+        <div class="info-article">
+            <div>
+                <p class="date">{{ article.published_at }}</p>
+            </div>
+            <div class="label">{{ article['category'] }}</div>
+        </div>
+    </div>
+    <div class="content">
+        <div class="articles">
+            <div class="thumbnaile">
+                <img src="/static/{{ article['thumbnail'] }}" alt="{{ article['title'] }}" />
+            </div>
+            <article class="article">
+                {% for paragraph in article['description'].split('\n') %}
+                {% if paragraph.strip() %}
+                <p class="text">{{ paragraph }}</p>
+                {% else %}
+                <div style="height: 1rem;"></div>
+                {% endif %}
+                {% endfor %}
+            </article>
+        </div>
+    </div>
+    <aside class="aside">
+        {% if not user.is_login() %}
+        <div class="card-regist">
+            <p>
+                CoinRadar Update Temukan berita terbaru seputar crypto, projek dan
+                blockchain di notifikasi ketika bergabung bersama kami.
+            </p>
+            <button class="btn-regist">Register</button>
+        </div>
+        {% endif %}
+        <div class="card-comments">
+            <h3>Comments</h3>
+            <div class="wrap-comments">
+                {% for comment in comments %}
+                <div class="list-comments 1">
+                    <div class="circle-profile">
+                        <img src="{{ comment.user.avatar }}" alt="" />
+                    </div>
+                    <div class="wrap-info_comment">
+                        <div class="info-comment">
+                            <p>
+                                {{ comment.user.username }} -
+                                <span class="date-comment date">{{ comment.published_at }}</span>
+                            </p>
+                        </div>
+                        <p class="text-comment">
+                            {{ comment.comment }}
+                        </p>
+                    </div>
+                </div>
+
+                {% endfor %}
+            </div>
+            <form class="form-input_comment" action="{{url}}/comment" method="post">
+                <div class="comment">
+                    <input type="text" name="text" class="input-comment" placeholder="Add a comment..." />
+                    <button class="btn-send">
+                        <div class="icon-send">
+                            <svg data-slot="icon" fill="none" stroke-width="1.5" stroke="currentColor"
+                                viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+                                <path stroke-linecap="round" stroke-linejoin="round"
+                                    d="M6 12 3.269 3.125A59.769 59.769 0 0 1 21.485 12 59.768 59.768 0 0 1 3.27 20.875L5.999 12Zm0 0h7.5">
+                                </path>
+                            </svg>
+                        </div>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </aside>
+</main>
+
+{% endblock %}

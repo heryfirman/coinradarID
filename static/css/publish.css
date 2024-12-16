@@ -1,0 +1,165 @@
+@import "./styles/global.css";
+
+body {
+    background-color: #ffffff;
+}
+
+/* ---------->>> MAIN - START <<------------ */
+.main {
+    grid-area: main;
+    display: grid;
+    min-block-size: 100vh;
+    min-block-size: 100dvh;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding-block: 1rem;
+    width: min(95%, 50rem);
+    margin-inline: auto;
+    margin-bottom: 3rem;
+}
+
+.wrap-input_article {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+    margin: 1rem;
+}
+.dropzone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+    height: 250px;
+    margin-bottom: 12px;
+    border-radius: var(--br-big);
+    border: 4px dashed var(--c-bg-grey-tertiary);
+    background-color: #ffffff;
+    color: #6c757d;
+}
+.dropzone .display-none {
+    display: none;
+}
+.dropzone .img-preview {
+    display: none;
+    max-width: 100%;
+    height: auto;
+    margin-top: 1rem;
+}
+.wrap-input label.form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    color: #212529;
+}
+
+.dropzone:hover {
+    border-color: #007bff;
+    color: #007bff;
+}
+
+.form-select {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-select:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+textarea {
+    max-width: 50rem;
+}
+
+.text-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    gap: 2rem;
+    margin: 50px auto;
+}
+
+.text-center .btn {
+    width: 30%;
+    height: 2.5rem;
+    display: inline-block;
+    padding: 14px auto;
+    border-radius: var(--br-small);
+    background-color: var(--c-blue-primary);
+    color: black;
+}
+
+.text-center .btn:focus {
+    filter: grayscale(50%);
+}
+
+.text-center .btn.cancel {
+    background-color: var(--c-bg-grey-tertiary);
+    color: inherit;
+}
+.text-center .btn.save {
+    background-color: var(--c-bg-tertiary);
+    color: var(--c-bg-light);
+}
+/* .me-5 {
+    margin-end: 3rem;
+} */
+/* ---------->>> MAIN - END <<-------------- */
+
+/* ---------->>> Drag & Drop <<------------ */
+/* .dropzone {
+    border: 2px dashed #ccc;
+    border-radius: 5px;
+    padding: 20px;
+    text-align: center;
+    color: #888;
+    cursor: pointer;
+    transition: border-color 0.3s;
+} */
+
+/* #preview {
+    max-height: 200px;
+    object-fit: contain;
+    border: 1px solid #ddd;
+    padding: 5px;
+    border-radius: 5px;
+} */
+/* ---------->>> Drag & Drop END <<------------ */

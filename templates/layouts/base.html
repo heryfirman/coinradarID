@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{% block title %} {% endblock %}</title>
+    <link rel="stylesheet" href="/static/css/styles/global.css" />
+
+    {% block extrahead %} {% endblock %}
+  </head>
+
+  <body>
+    {% block body %} {% include "components/header.html" %} {% block content %}
+    {% endblock %} {% include "components/footer.html" %} {% endblock %} {%
+    include "components/flash.html" %}
+
+    <script src="/static/js/script.js"></script>
+
+    {% block script %} {% endblock %}
+
+    <script>
+      document.querySelectorAll(".date").forEach((el) => {
+        el.innerHTML = new Date(el.innerHTML).toLocaleString("id-ID", {
+          weekday: "long",
+          year: "numeric",
+          month: "long",
+          day: "numeric", 
+//          hour: "2-digit",
+ //         minute: "2-digit"
+        });
+      });
+    </script>
+  </body>
+</html>

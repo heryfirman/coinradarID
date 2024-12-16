@@ -1,0 +1,60 @@
+{% extends "layouts/base_with_grid.html" %}
+
+{% block title %} Homepage {% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="/static/css/style.css" />
+{% endblock %}
+
+{% block content %}
+<main class="main">
+    <div class="banner">
+        {% for article in latest_articles %}
+        <a href="{{ url_for('singlepage', title=article['title']) }}"> <!-- Menggunakan 'title' untuk parameter -->
+            <div class="article-banner">
+                <img src="{{ url_for('static', filename=article.thumbnail) }}" alt="{{ article.title }}" />
+                <div class="wrap-article_info">
+                    <h3>{{ article.title }}</h3>
+                    <p><span class="date">{{ article.published_at }} </span> <span class="label">{{
+                            article.category }}</span></p>
+                </div>
+            </div>
+            {% endfor %}
+    </div>
+
+    <div class="content">
+        <div class="list-articles">
+            {% for article in articles %}
+            <a href="{{ url_for('singlepage', title=article['title']) }}"> <!-- Menggunakan 'title' untuk parameter -->
+                <article class="card-article">
+                    <div class="thumbnaile">
+                        <img src="{{ url_for('static', filename=article.thumbnail) }}" alt="{{ article.title }}" />
+                    </div>
+                    <div class="article-info">
+                        <div class="info">
+                            <h3>{{ article.title }}</h3>
+                            <p><span class="date">{{ article.published_at }}</span> <span class="label">{{ article.category }}</span></p>
+                        </div>
+                        <div class="describe">
+                            <p>{{ article.description }}</p>
+                        </div>
+                    </div>
+                </article>
+            </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <aside class="aside">
+        {% if not user.is_login() %}
+        <div class="card-regist">
+            <p>
+                CoinRadar Update Temukan berita terbaru seputar crypto, projek dan
+                blockchain di notifikasi ketika bergabung bersama kami.
+            </p>
+            <button class="btn-regist" onclick="location.href='/signup'">Register</button>
+        </div>
+        {% endif %}
+    </aside>
+</main>
+{% endblock %}

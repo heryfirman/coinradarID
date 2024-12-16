@@ -1,0 +1,63 @@
+@import "./styles/global.css";
+
+/* ---------->>> MAIN - START <<------------ */
+.main {
+    grid-area: main;
+    min-block-size: 100vh;
+    min-block-size: 100dvh;
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+    padding-block: 1rem;
+    width: min(95%, 40rem);
+    margin-inline: auto;
+}
+
+/* Main Admin Page */
+.profile-icon {
+    font-size: 30px;
+    color: #007bff;
+}
+
+.article-card {
+    background-color: white;
+    border-radius: 10px;
+    padding: 20px;
+    margin-bottom: 20px;
+    display: flex;
+    align-items: center;
+}
+
+.article-card img {
+    border-radius: 10px;
+    width: 150px;
+    height: 100px;
+    object-fit: cover;
+    margin-right: 20px;
+}
+
+.article-card .btn {
+    margin-right: 10px;
+}
+
+.update-section {
+    background-color: #333;
+    color: white;
+    padding: 20px;
+    border-radius: 8px;
+    box-shadow: 5px 5px 0px #000;
+    text-align: center;
+}
+
+.update-section .btn {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-size: 16px;
+    margin-top: 20px;
+}
+/* End Main Admin Page */
+
+/* ---------->>> MAIN - END <<-------------- */

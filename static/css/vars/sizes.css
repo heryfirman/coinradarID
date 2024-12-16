@@ -1,0 +1,19 @@
+:root {
+  /* OUTER SPACING */
+  --gap: 20px;
+  --gap-negative: -20px;
+
+  /* INNER SPACING */
+  --sp-basic: 10px;
+  --sp-big: 20px;
+
+  --sp-nav-link: var(--sp-basic) var(--sp-big);
+  /* BORDER RADIUS */
+  --br-basic: 10px;
+  --br-big: 20px;
+  --br-small: 5px;
+
+  --br-border: var(--br-small);
+  --br-btn: var(--br-btn);
+  --br-link: var(--br-big);
+}

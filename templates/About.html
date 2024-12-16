@@ -1,0 +1,44 @@
+{% extends "layouts/base_with_grid.html" %}
+
+{% block title %} About {% endblock %}
+
+{% block extrahead %}
+<link rel="stylesheet" href="/static/css/about.css">
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+{% endblock %}
+
+{% block content %}
+<main class="main-container">
+    <section class="welcome-section">
+        <img src="/static/logofooter.png" alt="CoinRadar" class="logo">
+        <h1 class="italic">
+            Selamat Datang di Blog <br> Komunitas <span class="highlight">CoinRadar</span>
+        </h1>
+    </section>
+    <section class="about-section">
+        <h2 class="about-title">Tentang Kami</h2>
+        <p class="about-text text-justify">
+            Situs ini merupakan sebuah blog dari komunitas CoinRadar, yang memiliki tujuan untuk memberikan
+            informasi terkini tentang crypto, blockchain, web3, project dan berbagai macam hal yang berkaitan dengan
+            cryptocurrency. Situs ini mendedikasikan supaya para pembacanya khusus komunitas CoinRadar untuk dapat
+            menerima berita terbaru yang mungkin akan sangat bermanfaat bagi mereka. Kalian juga bisa melakukan
+            registrasi dan login guna dapat mengakses berbagai macam fitur yang telah kami sediakan di blog
+            CoinRadar.
+        </p>
+        <p class="about-text text-justify">
+            Silahkan bergabung dengan komunitas kami, agar kalian tidak ketinggalan informasi menarik lainnya.
+        </p>
+
+        <p class="social-title">Follow Us</p>
+
+        <div class="social-links">
+            <a href="https://t.me/CoinRadarID" target="_blank"><img src="/static/telegram.png" alt="Telegram"
+                    class="social-icon"></a>
+            <a href="https://www.youtube.com/@coinradarid" target="_blank"><img src="/static/youtube.png" alt="YouTube"
+                    class="social-icon"></a>
+            <a href="https://www.facebook.com/share/g/1GH2RDBPce/" target="_blank"><img src="/static/facebook.png"
+                    alt="Facebook" class="social-icon"></a>
+        </div>
+    </section>
+</main>
+{% endblock content %}
